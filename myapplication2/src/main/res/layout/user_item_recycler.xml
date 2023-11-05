@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_root_user"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="5dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/profileImg"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/a"></ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/userIdView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="id"
+            android:layout_marginBottom="5dp"
+        ></TextView>
+
+        <TextView
+            android:id="@+id/userEmailView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="email"
+            android:layout_marginBottom="5dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/userNameView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Name"
+            android:layout_marginBottom="5dp"
+            ></TextView>
+
+
+
+        <TextView
+        android:id="@+id/userPasswordView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="password"
+        ></TextView>
+        <TextView
+            android:id="@+id/userPhoneView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="password"
+            ></TextView>
+        <TextView
+            android:id="@+id/userAddressView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="password"
+            ></TextView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

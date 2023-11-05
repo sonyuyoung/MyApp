@@ -1,25 +1,25 @@
 package com.example.myapplication.adapter
 
 import android.content.Context
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myapplication.databinding.MultiimagepickItemBinding
+import com.example.myapplication.databinding.UserItemRecyclerBinding
+import com.example.myapplication.model.User
 
 
-class MyViewHolder(val binding: MultiimagepickItemBinding) : RecyclerView.ViewHolder(binding.root)
+class MyViewHolder(val binding: UserItemRecyclerBinding) : RecyclerView.ViewHolder(binding.root)
 
 // var context:Context 추가 기법 : 애댑터 매개변수에 추가하면 해당 액티비티나 프래그먼트에서 뷰작업하기 좋음
-class MultiImageAdapter(val datas: ArrayList<Uri>, var context: Context) :
+class MultiImageAdapter(val datas: ArrayList<User>, var context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         MyViewHolder(
-            MultiimagepickItemBinding.inflate(
+            UserItemRecyclerBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
@@ -35,14 +35,22 @@ class MultiImageAdapter(val datas: ArrayList<Uri>, var context: Context) :
         // 이미지 출력도 쉽고, 크기 조절도 쉬워요.
         // 외부 기능을 가져다 사용 할게요.
         // 데이터에서 각요소 가져오기.
-        Glide.with(context).load(datas[position])
+
+        // 변경 부분 4 ~ 7
+        Glide.with(context).load(datas[position].profileUri)
             //크기 조절
             .override(200,200)
+            //크기 조절
             // 결과 이미지 넣기
-            .into(binding.multiImageItem)
+//            .into(binding.multiImageItem)
+        .into(binding.profileImg)
+        binding.userIdView.text = datas[position].id
+        binding.userEmailView.text = datas[position].email
+        binding.userNameView.text = datas[position].name
+        binding.userpasswordView.text = datas[position].password
 
         // 이벤트 처리할 때 필요한 부분
-        binding.itemRoot.setOnClickListener {
+        binding.itemRootUser.setOnClickListener {
             Log.d("lsy", "item clicked : $position")
             if (position == 0) {
                 Log.d("lsy", "0번 요소 item clicked : $position")

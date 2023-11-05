@@ -8,14 +8,13 @@
        특정 앱에 접근을 신청하는 양식.
        1) 접근시, 접근 레벨이 낮은 경우: 이용자의 허가를 받지 않고 이용함. -> 네트워크 , 와이파이
        2) 접근시, 접근 레벨이 높은 경우: 이용자의 허가를 받는 경우. -> 위치, 정확한
-       -->
+    -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 13 버전 이후 변경된 이미지 저장소 접근 허용 양식 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,6 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
         <activity
             android:name=".JoinActivity2"
             android:exported="true" />
@@ -50,8 +50,7 @@
         <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
         <!-- android:resource="@xml/file_paths" /> -->
         <!-- </provider> -->
-
-<!--      컴파일오류 니서 false로 변경    android:exported="false"-->
+        <!-- 컴파일오류 니서 false로 변경    android:exported="false" -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.myapplication.fileprovider"
@@ -65,8 +64,7 @@
 
         <activity
             android:name=".JoinActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
+            android:exported="true" />
         <activity
             android:name=".LoginFormActivity"
             android:exported="true" />

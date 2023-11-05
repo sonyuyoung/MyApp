@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication2">
+    <!--
+    이용자 입장, 현재 앱에서 -> 외부 앱의 기능을 많이 이용함.
+    시스템 앱 ex) gps, 갤러리, 카메라, 캘린더, 등등 이용을 많이함.
+    특정 앱에 접근을 신청하는 양식.
+    1) 접근시, 접근 레벨이 낮은 경우: 이용자의 허가를 받지 않고 이용함. -> 네트워크 , 와이파이
+    2) 접근시, 접근 레벨이 높은 경우: 이용자의 허가를 받는 경우. -> 위치, 정확한
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 13 버전 이후 변경된 이미지 저장소 접근 허용 양식 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- 외부 통신 하기위해서 인터넷 퍼미션 추가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.myapplication2.fileprovider"
+            android:enabled="true"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:name=".UserTableActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".JoinActivity2"
+            android:exported="true" />
+    </application>
+
+</manifest>
